@@ -1,6 +1,11 @@
 package com.itheima.dao;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.itheima.domain.Book;
+import org.apache.logging.log4j.util.Strings;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +18,7 @@ public class BookDaoTestCase {
 
     @Test
     void testGetById() {
-        System.out.println(bookDao.selectById(1));
+        bookDao.selectById(1);
     }
 
     @Test
@@ -42,14 +47,39 @@ public class BookDaoTestCase {
 
     @Test
     void testGetAll() {
-        System.out.println(bookDao.selectList(null));
+        bookDao.selectList(null);
     }
 
     @Test
     void testGetPage() {
+        IPage page = new Page(2, 5);
+        bookDao.selectPage(page, null);
+        System.out.println(page.getRecords());
+        System.out.println(page.getPages());
+        System.out.println(page.getCurrent());
+        System.out.println(page.getTotal());
+        System.out.println(page.getSize());
     }
 
     @Test
     void testGetBy() {
+        // 查询类
+        QueryWrapper<Book> qw = new QueryWrapper<>();
+        // name列带有Spring关键字的数据 select * from tbl_book where name like %Spring%
+        qw.like("name", "Spring");
+        bookDao.selectList(qw);
+    }
+
+    @Test
+    void testGetBy2() {
+        String name = "1";
+        // Lambda语法（Book::getName）
+        LambdaQueryWrapper<Book> lqw = new LambdaQueryWrapper<>();
+
+        // 好处，安全性高，不用hard code列名，容易出错
+        // if (name != null) lqw.like(Book::getName, name);
+        // 按条件查询，condition为false，不查询
+        lqw.like(Strings.isNotEmpty(name), Book::getName, name);
+        bookDao.selectList(lqw);
     }
 }

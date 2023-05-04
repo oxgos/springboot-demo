@@ -22,9 +22,9 @@ public class BookServiceTest {
     @Test
     void testSave() {
         Book book = new Book();
-        book.setType("测试类型11");
-        book.setName("Spring实战 第5站11");
-        book.setDescription("Spring入门经典教程，深入理解Spring11");
+        book.setType("测试类型20");
+        book.setName("Spring实战 第5站20");
+        book.setDescription("Spring入门经典教程，深入理解Spring20");
         System.out.println(bookService.save(book));
     }
 

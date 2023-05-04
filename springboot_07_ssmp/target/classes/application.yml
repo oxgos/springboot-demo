@@ -13,8 +13,8 @@ mybatis-plus:
   global-config:
     db-config:
       table-prefix: tbl_
-      # ????id????????assign_id
+      # 设置新增按id自增，id-type默认值：assign_id
       id-type: auto
   configuration:
-    # ?????StdOutImpl??????
+    # 日志输出方式：标准输出StdOutImpl（打印到控制台）
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

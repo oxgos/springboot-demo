@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.itheima.controller.utils.R;
 import com.itheima.domain.Book;
 import com.itheima.service.IBookService;
@@ -7,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.List;
 
 // 表现层
 @RestController
@@ -57,8 +57,24 @@ public class BookController {
         return new R(code, "删除成功");
     }
 
+//    @GetMapping("/{currentPage}/{pageSize}")
+//    public R getPage(@PathVariable int currentPage, @PathVariable int pageSize) {
+//        IPage<Book> page = bookService.getPage(currentPage, pageSize);
+//        // 如果当前页码值大于了总页面码值，那么重新执行查询操作，使用最大页码值作为当前页码值
+//        if (currentPage > page.getPages()) {
+//            bookService.getPage((int)page.getPages(), pageSize);
+//        }
+//        return new R(page);
+//    }
+
+    // query入参直接用实例去取
     @GetMapping("/{currentPage}/{pageSize}")
-    public R getPage(@PathVariable int currentPage, @PathVariable int pageSize) {
-        return new R(bookService.getPage(currentPage, pageSize));
+    public R getPage(@PathVariable int currentPage, @PathVariable int pageSize, Book book) {
+        IPage<Book> page = bookService.getPage(currentPage, pageSize, book);
+        // 如果当前页码值大于了总页面码值，那么重新执行查询操作，使用最大页码值作为当前页码值
+        if (currentPage > page.getPages()) {
+            bookService.getPage((int)page.getPages(), pageSize, book);
+        }
+        return new R(page);
     }
 }

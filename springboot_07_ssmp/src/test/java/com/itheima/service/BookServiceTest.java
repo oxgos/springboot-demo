@@ -3,7 +3,6 @@ package com.itheima.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.itheima.domain.Book;
-import com.itheima.service.impl.BookServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class BookServiceTest {
 
     @Autowired
-    private BookServiceImpl bookService;
+    private IBookService bookService;
 
     @Test
     void testGetById() {

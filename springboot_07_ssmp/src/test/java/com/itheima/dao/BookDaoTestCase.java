@@ -61,6 +61,7 @@ public class BookDaoTestCase {
         System.out.println(page.getSize());
     }
 
+    // 原始query写法
     @Test
     void testGetBy() {
         // 查询类
@@ -70,6 +71,7 @@ public class BookDaoTestCase {
         bookDao.selectList(qw);
     }
 
+    // lambda的query写法
     @Test
     void testGetBy2() {
         String name = "1";

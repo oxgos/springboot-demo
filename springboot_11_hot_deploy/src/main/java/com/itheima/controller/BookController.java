@@ -18,6 +18,8 @@ public class BookController {
     @GetMapping
     public R getAll() {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>123");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>123");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>123");
         return new R(bookService.list());
     }
 

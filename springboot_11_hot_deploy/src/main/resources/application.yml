@@ -3,12 +3,11 @@ server:
 
 spring:
   devtools:
-#    livereload:
-      # 禁止热启动，配置文件的优先级问题，所以这个关闭并不严谨，最好在启动文件禁止
-#      enabled: true
     restart:
       # 热启动排除检测文件夹
-      exclude: static,templates
+      exclude: static/**,public/**
+      # 禁止热启动，配置文件的优先级问题，所以这个关闭并不严谨，最好在启动文件禁止
+      # enabled: false
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver

@@ -1,0 +1,16 @@
+servers:
+  ipAddress: 192.168.0.1 # \u4E3B\u6D41: \u9A7C\u5CF0
+#  @ConfigurationProperties\u5339\u914D\u65F6(\u5BBD\u677E\u7ED1\u5B9A)\uFF0C\u5FFD\u7565_-,\u5FFD\u7565\u5927\u5C0F\u5199\uFF0C\u4F46@Value\u4E0D\u652F\u6301\uFF0C\u9700\u8981\u4E25\u683C\u5339\u914D
+#  ipaddress: 192.168.0.1
+#  ip-address: 192.168.0.1 # \u4E3B\u6D41\uFF1A\u70E4\u8089\u4E32\u6A21\u5F0F
+#  ip_address: 192.168.0.1 # \u4E3B\u6D41: unline
+#  ip-address: 192.168.0.1
+#  IPADDRESS: 192.168.0.1
+#  IP_ADDRESS: 192.168.0.1 # \u4E3B\u6D41\uFF1A\u5E38\u91CF
+  port: 8081
+  timeout: -1
+  serverTimeout: 3
+  dataSize: 10
+
+dataSource:
+  driverClassName: com.mysql.jdbc.Driver789

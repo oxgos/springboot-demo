@@ -10,9 +10,12 @@ class Springboot12ConfigurationApplicationTests {
     @Value("${servers.ipAddress}")
     private String msg;
 
+    @Value("${dataSource.password}")
+    private String password;
+
     @Test
     void contextLoads() {
-        System.out.println(msg);
+        System.out.println(password);
     }
 
 }

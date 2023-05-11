@@ -14,3 +14,6 @@ servers:
 
 dataSource:
   driverClassName: com.mysql.jdbc.Driver789
+  password: "0107"
+  # \u8FD9\u79CD\u5199\u6CD5\uFF0C\u662F\u4EE3\u8868\u516B\u8FDB\u5236
+  # password: 0107

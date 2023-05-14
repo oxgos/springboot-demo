@@ -1,0 +1,34 @@
+test:
+  prop: testValue
+
+testcase:
+  book:
+    id: ${random.int}
+    # 限制10以内
+    id2: ${random.int(10)}
+    # 限制5-10
+    type: ${random.int(5,10)}
+    name: 黑马${random.long}
+    uuid: ${random.uuid}
+    publishTime: ${random.long}
+
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
+      username: root
+      password: 123456
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tbl_
+      # 设置新增按id自增，id-type默认值：assign_id
+      id-type: auto
+  configuration:
+    # 日志输出方式：标准输出StdOutImpl（打印到控制台）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+

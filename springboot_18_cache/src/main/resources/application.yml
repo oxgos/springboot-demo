@@ -8,6 +8,23 @@ spring:
       url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
       username: root
       password: 123456
+  cache:
+    type: redis
+    redis:
+      time-to-live: 10s # 缓存10秒
+      use-key-prefix: true # 是否用前缀（系统定义的前缀）
+      cache-null-values: false # 是否存空值
+      key-prefix: aa # 前缀
+  redis:
+    host: localhost
+    port: 6379
+
+
+# ehcache
+# cache:
+#   type: ehcache
+#   echache:
+#     config: ehcache.xml
 
 mybatis-plus:
   global-config:
@@ -18,3 +35,4 @@ mybatis-plus:
   configuration:
     # 日志输出方式：标准输出StdOutImpl（打印到控制台）
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
